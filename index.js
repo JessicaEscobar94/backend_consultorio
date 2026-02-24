@@ -15,6 +15,7 @@ app.use(cors());  // AGREGAR DOMINIO
 app.use(express.json());
 
 const apiKeyMiddleware = require('./apiKeyMiddleware');
+
 app.use(apiKeyMiddleware);
 
 //TEST
@@ -435,6 +436,8 @@ app.get('/horarios', verificarToken, (req, res) => {
 
   res.json(horarios);
 });
+
+console.log('API_KEY BACK:', process.env.API_KEY);
 
 // SERVER
 
