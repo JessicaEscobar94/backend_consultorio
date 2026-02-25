@@ -29,7 +29,6 @@ db.serialize(() => {
       paciente_id INTEGER NOT NULL,
       fecha TEXT NOT NULL,
       hora TEXT NOT NULL,
-
       estado TEXT DEFAULT 'ACTIVO',
       FOREIGN KEY (medico_id) REFERENCES usuarios(id),
       FOREIGN KEY (paciente_id) REFERENCES usuarios(id)

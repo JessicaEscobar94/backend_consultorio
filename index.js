@@ -11,18 +11,18 @@ const { verificarToken, soloRoles } = require('./middleware');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());  // AGREGAR DOMINIO
+app.use(cors(
+  {origin: 'https://pps-frontend-escobar.vercel.app/'}
+));
+
 app.use(express.json());
-
-const apiKeyMiddleware = require('./apiKeyMiddleware');
-
-app.use(apiKeyMiddleware);
-
-//TEST
 
 app.get('/', (req, res) => {
   res.send('Backend del consultorio funcionando');
 });
+const apiKeyMiddleware = require('./apiKeyMiddleware');
+
+app.use(apiKeyMiddleware);
 
 //LOGIN
 
@@ -436,8 +436,6 @@ app.get('/horarios', verificarToken, (req, res) => {
 
   res.json(horarios);
 });
-
-console.log('API_KEY BACK:', process.env.API_KEY);
 
 // SERVER
 
