@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors(
-  {origin: 'https://pps-frontend-escobar.vercel.app/'}
+  {origin: 'https://pps-frontend-escobar.vercel.app'}
 ));
 
 app.use(express.json());
